@@ -164,10 +164,10 @@
           <div class="form-foot" style="margin-top:18px"><span class="form-note">We confirm every order by email before anything is made.</span><button class="primary" type="submit" id="orderSubmit">Place order</button></div>
         </form>
       </div>
-      <div class="sent-state" id="orderSentState" hidden>
+      <div class="sent-state" id="orderSentState">
         <div class="sent-mark" aria-hidden="true">✓</div><h3>Order received!</h3><p id="orderSentCopy">Thanks — we'll email you shortly to confirm and arrange payment.</p><button class="primary" id="orderDone" type="button">Done</button>
       </div>
-      <div class="sent-state" id="orderErrorState" hidden>
+      <div class="sent-state" id="orderErrorState">
         <div class="sent-mark" aria-hidden="true">!</div><h3>Couldn't send automatically</h3><p>Copy your order details and email them to <strong>support@deenbay.com</strong>:</p><div class="summary" id="orderErrorSummary"></div><button class="copy-details" id="orderCopy" type="button">Copy order details</button><button class="primary" id="orderErrorDone" type="button" style="margin-top:12px">Done</button>
       </div>
     </div>
@@ -216,7 +216,7 @@
     const orderModal=document.getElementById('orderModal');
     const orderForm=document.getElementById('orderForm');
     let orderProductName='', orderProductPrice='';
-    function openOrder(){document.getElementById('orderFormState').hidden=false;document.getElementById('orderSentState').hidden=true;document.getElementById('orderErrorState').hidden=true;overlay.classList.add('open');orderModal.classList.add('open');orderModal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
+    function openOrder(){document.getElementById('orderFormState').hidden=false;document.getElementById('orderSentState').classList.remove('show');document.getElementById('orderErrorState').classList.remove('show');overlay.classList.add('open');orderModal.classList.add('open');orderModal.setAttribute('aria-hidden','false');document.body.style.overflow='hidden'}
     function orderBasePrice(){const m=/\$([\d,]+\.?\d*)/.exec(orderProductPrice||'');return m?parseFloat(m[1].replace(/,/g,'')):0}
     function updateOrderPrice(){let price=orderBasePrice();document.querySelectorAll('#orderOptions select').forEach(sel=>{const m=/\(\$([\d,]+\.?\d*)\)/.exec(sel.value||'');if(m)price=parseFloat(m[1].replace(/,/g,''))});orderProductPrice='$'+(price%1?price.toFixed(2):Math.round(price));document.getElementById('orderProductLine').textContent=orderProductPrice+' \u00b7 handmade by Chiqueriz'}
     function renderOrderOptions(btn){const box=document.getElementById('orderOptions');box.innerHTML='';(btn.dataset.opts||'').split('~').filter(Boolean).forEach(o=>{const parts=o.split('|');const type=parts[0],label=parts[1]||'';const div=document.createElement('div');div.className='field full';div.style.marginTop='14px';if(type==='n'){const note=document.createElement('div');note.className='hint';note.textContent=label;div.appendChild(note)}else{const lab=document.createElement('label');lab.textContent=label;div.appendChild(lab);if(type==='s'){const sel=document.createElement('select');sel.name='sel_'+label;const ph=document.createElement('option');ph.value='';ph.textContent='Select an option';ph.disabled=true;ph.selected=true;sel.appendChild(ph);(parts[2]||'').split(';').filter(Boolean).forEach(op=>{const oe=document.createElement('option');oe.value=op;oe.textContent=op;sel.appendChild(oe)});sel.addEventListener('change',updateOrderPrice);div.appendChild(sel)}else if(type==='a'){const max=parseInt(parts[2]||'256',10);if(parts[3]){const hint=document.createElement('div');hint.className='hint';hint.textContent=parts[3];div.appendChild(hint)}const ta=document.createElement('textarea');ta.name='opt_'+label;ta.rows=3;ta.maxLength=max;const c=document.createElement('div');c.className='char-count';c.textContent='0/'+max;ta.addEventListener('input',()=>{c.textContent=ta.value.length+'/'+max});div.appendChild(ta);div.appendChild(c)}else{const inp=document.createElement('input');inp.name='opt_'+label;inp.placeholder=parts[2]||'';div.appendChild(inp)}}box.appendChild(div)});updateOrderPrice()}
@@ -231,8 +231,8 @@
     orderForm.addEventListener('submit',event=>{event.preventDefault();if(!orderForm.reportValidity())return;const btn=document.getElementById('orderSubmit');btn.disabled=true;btn.textContent='Sending…';const d=new FormData(orderForm);
       fetch('https://formsubmit.co/ajax/support@deenbay.com',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({name:d.get('name'),email:d.get('email'),phone:d.get('phone'),_subject:'New DeenBay order: '+orderProductName,message:orderText(),_captcha:'false',_template:'table'})})
       .then(r=>{if(!r.ok)throw new Error('send failed');return r.json()})
-      .then(()=>{document.getElementById('orderFormState').hidden=true;document.getElementById('orderErrorState').hidden=true;document.getElementById('orderSentState').hidden=false;document.getElementById('orderSentCopy').textContent='Thanks '+d.get('name')+' — your order for the '+orderProductName+' is in. We\'ll email you at '+d.get('email')+' shortly to confirm and arrange payment.'})
-      .catch(()=>{document.getElementById('orderFormState').hidden=true;document.getElementById('orderSentState').hidden=true;document.getElementById('orderErrorSummary').textContent=orderText();document.getElementById('orderErrorState').hidden=false})
+      .then(()=>{document.getElementById('orderFormState').hidden=true;document.getElementById('orderErrorState').classList.remove('show');document.getElementById('orderSentState').classList.add('show');document.getElementById('orderSentCopy').textContent='Thanks '+d.get('name')+' — your order for the '+orderProductName+' is in. We\'ll email you at '+d.get('email')+' shortly to confirm and arrange payment.'})
+      .catch(()=>{document.getElementById('orderFormState').hidden=true;document.getElementById('orderSentState').classList.remove('show');document.getElementById('orderErrorSummary').textContent=orderText();document.getElementById('orderErrorState').classList.add('show')})
       .finally(()=>{btn.disabled=false;btn.textContent='Place order'})});
 
 </script>
