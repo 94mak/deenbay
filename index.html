@@ -48,7 +48,7 @@
       <h2 style="font:600 28px/1.1 Newsreader,serif;margin:0 0 8px">This page is locked</h2>
       <p style="color:var(--muted);font-size:14px;margin:0 0 22px">Enter the password to continue.</p>
       <form id="gateForm">
-        <div class="field" style="text-align:left"><label for="gatePassword">Password</label><input id="gatePassword" type="password" autocomplete="current-password" required></div>
+        <div class="field" style="text-align:left"><label for="gatePassword">Password</label><div style="position:relative"><input id="gatePassword" type="password" autocomplete="current-password" autocapitalize="off" autocorrect="off" spellcheck="false" required style="padding-right:56px"><button type="button" id="gateToggle" style="position:absolute;right:4px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:var(--muted);font-size:12px;font-weight:700;padding:6px 8px;cursor:pointer">Show</button></div></div>
         <p id="gateError" hidden style="color:var(--danger);font-size:13px;margin:10px 0 0">Incorrect password — try again.</p>
         <button class="primary" type="submit" style="width:100%;margin-top:16px">Unlock</button>
       </form>
@@ -203,13 +203,20 @@
       var form=document.getElementById('gateForm');
       var input=document.getElementById('gatePassword');
       var error=document.getElementById('gateError');
+      var toggle=document.getElementById('gateToggle');
       function unlock(){document.body.classList.remove('gate-locked')}
       if(localStorage.getItem(STORAGE_KEY)==='true'){unlock();return}
       input.focus();
+      toggle.addEventListener('click',function(){
+        var showing=input.type==='text';
+        input.type=showing?'password':'text';
+        toggle.textContent=showing?'Show':'Hide';
+        input.focus();
+      });
       form.addEventListener('submit',function(e){
         e.preventDefault();
-        if(input.value===GATE_PASSWORD){localStorage.setItem(STORAGE_KEY,'true');unlock()}
-        else{error.hidden=false;input.value='';input.focus()}
+        if(input.value.trim()===GATE_PASSWORD){localStorage.setItem(STORAGE_KEY,'true');unlock()}
+        else{error.hidden=false;input.select();input.focus()}
       });
     })();
 
