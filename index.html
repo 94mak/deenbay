@@ -205,8 +205,8 @@
       var error=document.getElementById('gateError');
       var toggle=document.getElementById('gateToggle');
       function unlock(){document.body.classList.remove('gate-locked')}
-      if(localStorage.getItem(STORAGE_KEY)==='true'){unlock();return}
-      input.focus();
+      function remember(){try{localStorage.setItem(STORAGE_KEY,'true')}catch(e){}}
+      function wasRemembered(){try{return localStorage.getItem(STORAGE_KEY)==='true'}catch(e){return false}}
       toggle.addEventListener('click',function(){
         var showing=input.type==='text';
         input.type=showing?'password':'text';
@@ -215,9 +215,11 @@
       });
       form.addEventListener('submit',function(e){
         e.preventDefault();
-        if(input.value.trim()===GATE_PASSWORD){localStorage.setItem(STORAGE_KEY,'true');unlock()}
+        if(input.value.trim()===GATE_PASSWORD){remember();unlock()}
         else{error.hidden=false;input.select();input.focus()}
       });
+      if(wasRemembered()){unlock()}
+      else{input.focus()}
     })();
 
     // INTEREST DESTINATION CONFIG — replace this placeholder before publishing.
