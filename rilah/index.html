@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>Rilah on DeenBay</title>
+  <meta name="description" content="Rilah dhikr counters: handmade tasbeeh counters for remembrance, from $10." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      color-scheme:light dark;
+      --bg:#f7f6f1;--paper:#fffefa;--ink:#18332a;--muted:#65726d;--line:#d9ddd4;
+      --green:#0c6148;--green-2:#174f40;--mint:#dcebe2;--gold:#bd8a2c;--gold-soft:#f1e3bd;
+      --shadow:0 20px 55px rgba(18,46,36,.12);
+    }
+    @media(prefers-color-scheme:dark){:root{
+      --bg:#0e1915;--paper:#15231e;--ink:#edf7f1;--muted:#a8b7b0;--line:#31443c;
+      --green:#61c5a1;--green-2:#d5f2e5;--mint:#203d32;--gold:#e0b45b;--gold-soft:#3d321d;
+      --shadow:0 20px 55px rgba(0,0,0,.32);
+    }}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;line-height:1.5}
+    a{color:inherit}
+    .shell{width:min(1180px,calc(100% - 40px));margin:auto}
+
+    .topbar{padding:13px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(14px);z-index:20}
+    .toprow{display:flex;justify-content:space-between;align-items:center;gap:20px}
+    .brand{font-weight:800;font-size:15px;text-decoration:none;color:var(--green-2)}
+    .topnav{display:flex;gap:8px;align-items:center}
+    .nav-link{font-size:13px;font-weight:700;padding:9px 12px;text-decoration:none}
+    .nav-link.primary-link{background:var(--green);color:#fff;border-radius:100px;padding-inline:16px}
+
+    .hero{padding:64px 0 36px;max-width:760px}
+    .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:15px}
+    .hero h1{font:600 clamp(44px,6vw,76px)/1.04 Newsreader,serif;letter-spacing:-.05em;margin:0}
+    .hero h1 em{color:var(--green);font-style:italic}
+    .hero p{font-size:18px;color:var(--muted);margin:22px 0 0;max-width:620px}
+
+    .section-title{font:600 clamp(28px,3.4vw,40px)/1.1 Newsreader,serif;letter-spacing:-.03em;margin:0 0 22px}
+
+    .event{display:grid;grid-template-columns:.42fr .58fr;gap:36px;align-items:center;background:var(--gold-soft);border-radius:24px;padding:28px;margin:18px 0 64px}
+    .event img{width:100%;height:auto;border-radius:16px;display:block;background:var(--mint)}
+    .event h2{font:600 clamp(26px,3vw,38px)/1.1 Newsreader,serif;letter-spacing:-.03em;margin:0 0 12px}
+    .event p{color:var(--muted);margin:0 0 14px}
+    .event .when{font-weight:800;color:var(--green-2)}
+    .prices{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 22px}
+    .pill{background:var(--paper);border:1px solid var(--line);border-radius:100px;padding:8px 15px;font-size:14px;font-weight:700}
+
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-bottom:64px}
+    .card{background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease}
+    .card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+    .card .ph{aspect-ratio:3/4;background:var(--mint);overflow:hidden}
+    .card .ph img{width:100%;height:100%;object-fit:cover;display:block}
+    .card .body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+    .card h3{margin:0;font:600 22px/1.15 Newsreader,serif;letter-spacing:-.02em}
+    .card .tag{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+    .card p{margin:0;font-size:14px;color:var(--muted);flex:1}
+    .card .price{font-weight:800;color:var(--green-2);margin-top:6px}
+
+    .primary,.secondary{display:inline-block;border-radius:100px;padding:13px 20px;font-weight:800;text-decoration:none;text-align:center}
+    .primary{background:var(--green);color:#fff}
+    .secondary{border:1px solid var(--line)}
+
+    .note{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px 30px;margin-bottom:64px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+    .note p{margin:0;color:var(--muted);max-width:640px}
+
+    footer{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:1px solid var(--line);padding:26px 0 48px;font-size:13px;color:var(--muted)}
+
+    @media(max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}.event{grid-template-columns:1fr}}
+    @media(max-width:520px){.grid{gap:14px}.card h3{font-size:19px}.card .body{padding:13px 13px 16px}.hero{padding-top:44px}.event{padding:20px;border-radius:18px}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell toprow">
+      <a class="brand" href="../">← DeenBay</a>
+      <nav class="topnav" aria-label="Rilah page">
+        <a class="nav-link" href="#event">Workshop</a>
+        <a class="nav-link" href="#counters">Counters</a>
+        <a class="nav-link primary-link" href="https://rilah.co/collections/all" target="_blank" rel="noopener">Shop at Rilah</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="kicker">Featured maker</div>
+      <h1>Rilah — <em>one dhikr</em> at a time</h1>
+      <p>Custom dhikr counters made as a journey back to Allah SWT. Pick a design, carry it with you, and keep your remembrance close through the day.</p>
+    </section>
+
+    <section class="event" id="event" aria-labelledby="eventTitle">
+      <img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/RilahXIman_1.png?v=1791411068" alt="Rilah × Iman Boutique workshop flyer" width="1080" height="1350" loading="lazy" />
+      <div>
+        <div class="kicker">Upcoming workshop</div>
+        <h2 id="eventTitle">The Rilah Experience, with Iman Boutique</h2>
+        <p class="when">Saturday, November 7, 2026 · 2:00–4:00 PM</p>
+        <p>9723 Baltimore Ave, College Park, MD. Design your own personalized tasbeeh counter at a bead bar. Materials, finger foods, refreshments, take-home items and an exclusive shop experience are included.</p>
+        <div class="prices">
+          <span class="pill">Early Bird · $40</span>
+          <span class="pill">General Admission · $45</span>
+        </div>
+        <a class="primary" href="https://rilah.co/products/the-rilah-experience-rilah-lady-of-iman" target="_blank" rel="noopener">Get tickets on Rilah</a>
+      </div>
+    </section>
+
+    <section id="counters" aria-labelledby="countersTitle">
+      <h2 class="section-title" id="countersTitle">Dhikr counters</h2>
+      <div class="grid">
+
+        <a class="card" href="https://rilah.co/products/halo" target="_blank" rel="noopener">
+          <div class="ph"><img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/IMG_7990.heic?v=1788295565&amp;width=600&amp;format=jpg" alt="Halo dhikr counter" loading="lazy" /></div>
+          <div class="body"><span class="tag">Pearl Collection</span><h3>Halo</h3><p>The signature statement piece, with alternating pearl details and a jewel centerpiece. 15 colors and 5 face options.</p><span class="price">$12</span></div>
+        </a>
+
+        <a class="card" href="https://rilah.co/products/luster" target="_blank" rel="noopener">
+          <div class="ph"><img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/IMG_5200.jpg?v=1781812237&amp;width=600" alt="Luster dhikr counter" loading="lazy" /></div>
+          <div class="body"><span class="tag">Pearl Collection</span><h3>Luster</h3><p>The most understated piece in the collection, made for everyday remembrance.</p><span class="price">$12</span></div>
+        </a>
+
+        <a class="card" href="https://rilah.co/products/rilah-essence" target="_blank" rel="noopener">
+          <div class="ph"><img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/IMG_8002.heic?v=1788295182&amp;width=600&amp;format=jpg" alt="Essence dhikr counter" loading="lazy" /></div>
+          <div class="body"><span class="tag">Counter</span><h3>Essence</h3><p>Minimal but necessary: a single-color face lining and jeweled body with a signature center jewel.</p><span class="price">$12</span></div>
+        </a>
+
+        <a class="card" href="https://rilah.co/products/rilah-radiance" target="_blank" rel="noopener">
+          <div class="ph"><img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/IMG_8010.heic?v=1788295297&amp;width=600&amp;format=jpg" alt="Radiance dhikr counter" loading="lazy" /></div>
+          <div class="body"><span class="tag">Counter</span><h3>Radiance</h3><p>A reminder that faith lights each step. Elegance with style.</p><span class="price">$12</span></div>
+        </a>
+
+        <a class="card" href="https://rilah.co/products/petal" target="_blank" rel="noopener">
+          <div class="ph"><img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/IMG_7996.heic?v=1788295446&amp;width=600&amp;format=jpg" alt="Petal dhikr counter" loading="lazy" /></div>
+          <div class="body"><span class="tag">Floral Collection</span><h3>Petal</h3><p>The most delicate piece in the collection, with a floral face, made for quiet reflection.</p><span class="price">$10</span></div>
+        </a>
+
+        <a class="card" href="https://rilah.co/products/france" target="_blank" rel="noopener">
+          <div class="ph"><img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/IMG_8556.heic?v=1789077080&amp;width=600&amp;format=jpg" alt="France flag dhikr counter" loading="lazy" /></div>
+          <div class="body"><span class="tag">Culture series</span><h3>France</h3><p>Liberty, equality and unity in blue, white and red. Carry your culture and your dhikr.</p><span class="price">$14</span></div>
+        </a>
+
+        <a class="card" href="https://rilah.co/products/rilah-bloom" target="_blank" rel="noopener">
+          <div class="ph"><img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/IMG_8561.heic?v=1789077254&amp;width=600&amp;format=jpg" alt="Palestine flag dhikr counter" loading="lazy" /></div>
+          <div class="body"><span class="tag">Culture series</span><h3>Palestine</h3><p>A tribute to resilience, heritage and hope in red, white, black and green.</p><span class="price">$14</span></div>
+        </a>
+
+        <a class="card" href="https://rilah.co/products/yemen" target="_blank" rel="noopener">
+          <div class="ph"><img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/IMG_8553.heic?v=1789077171&amp;width=600&amp;format=jpg" alt="Yemen flag dhikr counter" loading="lazy" /></div>
+          <div class="body"><span class="tag">Culture series</span><h3>Yemen</h3><p>A tribute to strength, heritage and unity in red, white and black.</p><span class="price">$14</span></div>
+        </a>
+
+        <a class="card" href="https://rilah.co/products/sudan" target="_blank" rel="noopener">
+          <div class="ph"><img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/IMG_8554.heic?v=1789076976&amp;width=600&amp;format=jpg" alt="Sudan flag dhikr counter" loading="lazy" /></div>
+          <div class="body"><span class="tag">Culture series</span><h3>Sudan</h3><p>A tribute to strength, resilience and unity in red, white, black and green.</p><span class="price">$14</span></div>
+        </a>
+
+        <a class="card" href="https://rilah.co/products/nigeria" target="_blank" rel="noopener">
+          <div class="ph"><img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/IMG_8555.heic?v=1789076806&amp;width=600&amp;format=jpg" alt="Nigeria flag dhikr counter" loading="lazy" /></div>
+          <div class="body"><span class="tag">Culture series</span><h3>Nigeria</h3><p>A tribute to peace, unity and national pride. Green for the land, white for peace.</p><span class="price">$14</span></div>
+        </a>
+
+      </div>
+    </section>
+
+    <section class="note">
+      <p>Orders, shipping and checkout are handled on Rilah's own store. Prices shown were taken from rilah.co on October 17, 2026 and may change.</p>
+      <a class="secondary" href="https://rilah.co" target="_blank" rel="noopener">Visit rilah.co</a>
+    </section>
+
+    <footer><span>DeenBay · Launching soon</span><span>Product photos and prices © Rilah</span></footer>
+  </main>
+</body>
+</html>
