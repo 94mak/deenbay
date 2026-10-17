@@ -65,6 +65,15 @@
     .primary{background:var(--green);color:#fff}
     .secondary{border:1px solid var(--line)}
 
+    .soon{margin-bottom:64px}
+    .soon p.lead{color:var(--muted);margin:-8px 0 22px;max-width:620px}
+    .soon-card{border:1.5px dashed var(--line);border-radius:20px;padding:0;overflow:hidden;background:transparent;display:flex;flex-direction:column}
+    .soon-card .ph{aspect-ratio:3/4;background:var(--mint);display:grid;place-items:center;opacity:.7}
+    .soon-card .ph span{background:var(--paper);color:var(--green-2);border-radius:100px;padding:7px 12px;font-size:11px;font-weight:800;letter-spacing:.06em}
+    .soon-card .body{padding:16px 18px 20px}
+    .soon-card h3{margin:0 0 4px;font:600 22px/1.15 Newsreader,serif;letter-spacing:-.02em}
+    .soon-card p{margin:0;font-size:14px;color:var(--muted)}
+    .soon .grid{margin-bottom:0}
     .note{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px 30px;margin-bottom:64px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
     .note p{margin:0;color:var(--muted);max-width:640px}
 
@@ -81,6 +90,7 @@
       <nav class="topnav" aria-label="Rilah page">
         <a class="nav-link" href="#event">Workshop</a>
         <a class="nav-link" href="#counters">Counters</a>
+        <a class="nav-link" href="#coming-soon">Coming soon</a>
         <a class="nav-link primary-link" href="https://rilah.co/collections/all" target="_blank" rel="noopener">Shop at Rilah</a>
       </nav>
     </div>
@@ -162,6 +172,29 @@
           <div class="body"><span class="tag">Culture series</span><h3>Nigeria</h3><p>A tribute to peace, unity and national pride. Green for the land, white for peace.</p><span class="price">$14</span></div>
         </a>
 
+      </div>
+    </section>
+
+    <section class="soon" id="coming-soon" aria-labelledby="soonTitle">
+      <h2 class="section-title" id="soonTitle">More products coming soon</h2>
+      <p class="lead">We're adding more to this page as Rilah and other sellers join DeenBay.</p>
+      <div class="grid">
+        <div class="soon-card">
+          <div class="ph"><span>COMING SOON</span></div>
+          <div class="body"><h3>New designs</h3><p>More dhikr counters from Rilah are on the way.</p></div>
+        </div>
+        <div class="soon-card">
+          <div class="ph"><span>COMING SOON</span></div>
+          <div class="body"><h3>New collections</h3><p>Fresh collections to join Pearl and Floral.</p></div>
+        </div>
+        <div class="soon-card">
+          <div class="ph"><span>COMING SOON</span></div>
+          <div class="body"><h3>More culture series</h3><p>More flags to carry your culture and your dhikr.</p></div>
+        </div>
+        <div class="soon-card">
+          <div class="ph"><span>COMING SOON</span></div>
+          <div class="body"><h3>More to discover</h3><p>Additional prayer essentials arriving on DeenBay.</p></div>
+        </div>
       </div>
     </section>
 
