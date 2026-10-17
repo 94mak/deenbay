@@ -1,0 +1,302 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>Events on DeenBay</title>
+  <meta name="description" content="Upcoming DeenBay events: design your own tasbeeh counter with Rilah × Iman Boutique." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      color-scheme:light dark;
+      --bg:#f7f6f1;--paper:#fffefa;--ink:#18332a;--muted:#65726d;--line:#d9ddd4;
+      --green:#0c6148;--green-2:#174f40;--mint:#dcebe2;--gold:#bd8a2c;--gold-soft:#f1e3bd;
+      --shadow:0 20px 55px rgba(18,46,36,.12);
+    }
+    @media(prefers-color-scheme:dark){:root{
+      --bg:#0e1915;--paper:#15231e;--ink:#edf7f1;--muted:#a8b7b0;--line:#31443c;
+      --green:#61c5a1;--green-2:#d5f2e5;--mint:#203d32;--gold:#e0b45b;--gold-soft:#3d321d;
+      --shadow:0 20px 55px rgba(0,0,0,.32);
+    }}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;line-height:1.5}
+    a{color:inherit}
+    .shell{width:min(1180px,calc(100% - 40px));margin:auto}
+
+    .topbar{padding:13px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(14px);z-index:20}
+    .toprow{display:flex;justify-content:space-between;align-items:center;gap:20px}
+    .brand{font-weight:800;font-size:15px;text-decoration:none;color:var(--green-2)}
+    .topnav{display:flex;gap:8px;align-items:center}
+    .nav-link{font-size:13px;font-weight:700;padding:9px 12px;text-decoration:none}
+    .nav-link.primary-link{background:var(--green);color:#fff;border-radius:100px;padding-inline:16px}
+
+    .hero{padding:64px 0 36px;max-width:760px}
+    .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:15px}
+    .hero h1{font:600 clamp(44px,6vw,76px)/1.04 Newsreader,serif;letter-spacing:-.05em;margin:0}
+    .hero h1 em{color:var(--green);font-style:italic}
+    .hero p{font-size:18px;color:var(--muted);margin:22px 0 0;max-width:620px}
+
+    .section-title{font:600 clamp(28px,3.4vw,40px)/1.1 Newsreader,serif;letter-spacing:-.03em;margin:0 0 22px}
+
+    .event{display:grid;grid-template-columns:.42fr .58fr;gap:36px;align-items:center;background:var(--gold-soft);border-radius:24px;padding:28px;margin:18px 0 64px}
+    .event img{width:100%;height:auto;border-radius:16px;display:block;background:var(--mint)}
+    .event h2{font:600 clamp(26px,3vw,38px)/1.1 Newsreader,serif;letter-spacing:-.03em;margin:0 0 12px}
+    .event p{color:var(--muted);margin:0 0 14px}
+    .event .when{font-weight:800;color:var(--green-2)}
+    .prices{display:flex;gap:10px;flex-wrap:wrap;margin:18px 0 22px}
+    .pill{background:var(--paper);border:1px solid var(--line);border-radius:100px;padding:8px 15px;font-size:14px;font-weight:700}
+
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;margin-bottom:64px}
+    .card{background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;display:flex;flex-direction:column;text-decoration:none;transition:transform .18s ease,box-shadow .18s ease}
+    .card:hover{transform:translateY(-3px);box-shadow:var(--shadow)}
+    .card .ph{aspect-ratio:3/4;background:var(--mint);overflow:hidden}
+    .card .ph img{width:100%;height:100%;object-fit:cover;display:block}
+    .card .body{padding:16px 18px 20px;display:flex;flex-direction:column;gap:6px;flex:1}
+    .card h3{margin:0;font:600 22px/1.15 Newsreader,serif;letter-spacing:-.02em}
+    .card .tag{font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold)}
+    .card p{margin:0;font-size:14px;color:var(--muted);flex:1}
+    .card .price{font-weight:800;color:var(--green-2);margin-top:6px}
+
+    .primary,.secondary{display:inline-block;border-radius:100px;padding:13px 20px;font-weight:800;text-decoration:none;text-align:center}
+    .primary{background:var(--green);color:#fff}
+    .secondary{border:1px solid var(--line)}
+
+    .soon{margin-bottom:64px}
+    .soon p.lead{color:var(--muted);margin:-8px 0 22px;max-width:620px}
+    .soon-card{border:1.5px dashed var(--line);border-radius:20px;padding:0;overflow:hidden;background:transparent;display:flex;flex-direction:column}
+    .soon-card .ph{aspect-ratio:3/4;background:var(--mint);display:grid;place-items:center;opacity:.7}
+    .soon-card .ph span{background:var(--paper);color:var(--green-2);border-radius:100px;padding:7px 12px;font-size:11px;font-weight:800;letter-spacing:.06em}
+    .soon-card .body{padding:16px 18px 20px}
+    .soon-card h3{margin:0 0 4px;font:600 22px/1.15 Newsreader,serif;letter-spacing:-.02em}
+    .soon-card p{margin:0;font-size:14px;color:var(--muted)}
+    .soon .grid{margin-bottom:0}
+    [hidden]{display:none!important}
+    .card{position:relative}
+    .card:focus-within{outline:2px solid var(--green);outline-offset:2px}
+    .order-btn{margin-top:10px;align-self:flex-start;border:0;background:var(--green);color:#fff;border-radius:100px;padding:10px 18px;font:inherit;font-size:14px;font-weight:800;cursor:pointer}
+    .order-btn::after{content:"";position:absolute;inset:0}
+    button.primary{border:0;font:inherit;font-weight:800;cursor:pointer}
+    dialog{background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:22px;padding:0;width:min(520px,calc(100% - 28px));max-height:calc(100dvh - 28px);box-shadow:var(--shadow)}
+    dialog::backdrop{background:rgba(10,20,16,.55)}
+    .dlg-in{padding:24px 26px 26px}
+    .dlg-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:16px}
+    .dlg-head h2{font:600 28px/1.1 Newsreader,serif;letter-spacing:-.03em;margin:2px 0 0}
+    .icon-btn{border:0;background:var(--mint);color:var(--ink);width:36px;height:36px;border-radius:50%;font-size:22px;line-height:1;cursor:pointer;flex:none}
+    .field{display:flex;flex-direction:column;gap:5px;margin-bottom:13px}
+    .field label{font-size:13px;font-weight:700}
+    .field input,.field select,.field textarea{font:inherit;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:11px 13px;width:100%}
+    .field textarea{min-height:76px;resize:vertical}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .total{display:flex;justify-content:space-between;align-items:center;background:var(--gold-soft);border-radius:14px;padding:13px 16px;margin:4px 0 16px;font-weight:800}
+    .total small{display:block;font-weight:600;color:var(--muted);font-size:12px}
+    .dlg-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .dlg-actions .primary,.dlg-actions .secondary{flex:1;min-width:140px;background:transparent}
+    .dlg-actions .primary{background:var(--green)}
+    .secondary{cursor:pointer;color:inherit;font:inherit;font-weight:800;background:transparent}
+    .summary-row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+    .summary-row span{color:var(--muted);flex:none}.summary-row b{text-align:right;word-break:break-word}
+    .fine{font-size:12.5px;color:var(--muted);margin:12px 0 0}
+    .sent{text-align:center;padding:10px 0}.sent .mark{width:54px;height:54px;border-radius:50%;background:var(--mint);color:var(--green);display:grid;place-items:center;font-size:26px;margin:0 auto 12px}
+    .note{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px 30px;margin-bottom:64px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
+    .note p{margin:0;color:var(--muted);max-width:640px}
+
+    footer{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;border-top:1px solid var(--line);padding:26px 0 48px;font-size:13px;color:var(--muted)}
+
+    @media(max-width:960px){.grid{grid-template-columns:repeat(2,1fr)}.event{grid-template-columns:1fr}}
+    @media(max-width:520px){.grid{gap:14px}.card h3{font-size:19px}.card .body{padding:13px 13px 16px}.hero{padding-top:44px}.event{padding:20px;border-radius:18px}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell toprow">
+      <a class="brand" href="../">← DeenBay</a>
+      <nav class="topnav" aria-label="Events page">
+        <a class="nav-link" href="../rilah/">Rilah counters</a>
+        <a class="nav-link primary-link" href="#event">Reserve tickets</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="shell">
+    <section class="hero">
+      <div class="kicker">Events</div>
+      <h1>Gather, create, <em>remember</em></h1>
+      <p>Community events from the makers and sellers on DeenBay. Reserve your spot by email, and we'll confirm it with you.</p>
+    </section>
+
+    <section class="event" id="event" aria-labelledby="eventTitle">
+      <img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/RilahXIman_1.png?v=1791411068" alt="Rilah × Iman Boutique workshop flyer" width="1080" height="1350" loading="lazy" />
+      <div>
+        <div class="kicker">Upcoming workshop</div>
+        <h2 id="eventTitle">The Rilah Experience, with Iman Boutique</h2>
+        <p class="when">Saturday, November 7, 2026 · 2:00–4:00 PM</p>
+        <p>9723 Baltimore Ave, College Park, MD. Design your own personalized tasbeeh counter at a bead bar. Materials, finger foods, refreshments, take-home items and an exclusive shop experience are included.</p>
+        <div class="prices">
+          <span class="pill">Early Bird · $40</span>
+          <span class="pill">General Admission · $45</span>
+        </div>
+        <button class="primary" type="button" data-order="event">Reserve tickets</button>
+      </div>
+    </section>
+
+    <section class="note">
+      <p><strong>How reserving works.</strong> Tap Reserve tickets, fill in your details, and send the request from your email app. We'll email you to confirm your spot. Prices were taken from Rilah's list on October 17, 2026 and may change. Love the counters? <a href="../rilah/"><strong>See the Rilah collection →</strong></a></p>
+    </section>
+
+    <footer><span>DeenBay · Launching soon</span><span>Product photos and prices © Rilah</span></footer>
+  </main>
+  <dialog id="orderDialog" aria-labelledby="orderTitle">
+    <div class="dlg-in">
+      <div class="dlg-head"><div><div class="kicker" style="margin:0">Order request</div><h2 id="orderTitle">Order</h2></div><button class="icon-btn" id="orderClose" type="button" aria-label="Close">×</button></div>
+
+      <form id="orderForm">
+        <div id="stepForm">
+          <div id="optionFields"></div>
+          <div class="field"><label for="qty" id="qtyLabel">Quantity</label><input id="qty" type="number" min="1" max="20" value="1" required inputmode="numeric"></div>
+          <div class="total"><div>Estimated total<small>Excludes shipping and taxes, if any</small></div><span id="orderTotal">$0.00</span></div>
+          <div class="two">
+            <div class="field"><label for="cName">Your name</label><input id="cName" autocomplete="name" required></div>
+            <div class="field"><label for="cPhone">Phone (optional)</label><input id="cPhone" type="tel" autocomplete="tel" inputmode="tel"></div>
+          </div>
+          <div class="field"><label for="cEmail">Email</label><input id="cEmail" type="email" autocomplete="email" inputmode="email" required placeholder="you@example.com"></div>
+          <div class="field" id="addrField"><label for="cAddr">Delivery address</label><textarea id="cAddr" autocomplete="street-address" required></textarea></div>
+          <div class="field"><label for="cNotes">Notes (optional)</label><textarea id="cNotes"></textarea></div>
+          <div class="dlg-actions"><button class="primary" type="submit">Review order</button></div>
+        </div>
+      </form>
+
+      <div id="stepReview" hidden>
+        <div id="summary"></div>
+        <p class="fine">Your order is only sent after you tap Send in your email app. We'll email you to confirm.</p>
+        <div class="dlg-actions" style="margin-top:16px">
+          <a class="primary" id="sendEmail" href="#">Send order by email</a>
+          <button class="secondary" id="copyOrder" type="button">Copy details instead</button>
+        </div>
+        <div class="dlg-actions" style="margin-top:10px"><button class="secondary" id="editOrder" type="button">Back to edit</button></div>
+      </div>
+
+      <div id="stepSent" class="sent" hidden>
+        <div class="mark" aria-hidden="true">✓</div>
+        <h3 id="sentTitle" style="font:600 24px Newsreader,serif;margin:0 0 6px">Order ready</h3>
+        <p id="sentCopy" style="color:var(--muted);margin:0 0 18px">Press Send in the email app that opened to place your order.</p>
+        <button class="primary" id="sentDone" type="button">Done</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    // Orders are emailed to the DeenBay inbox (same address the homepage forms use).
+    const ORDER_EMAIL = 'support@deenbay.com';
+
+    const PRODUCTS = {
+      'event': {name:'The Rilah Experience, Nov 7, 2026', event:true, price:0, options:[{id:'ticket',label:'Ticket',values:[{label:'Early Bird',price:40},{label:'General Admission',price:45}]}]}
+    };
+
+    const $ = id => document.getElementById(id);
+    const dlg = $('orderDialog');
+    let current = null, message = '';
+    const money = n => '$' + n.toFixed(2);
+    const labelOf = v => typeof v === 'string' ? v : v.label;
+
+    function showStep(step){ ['stepForm','stepReview','stepSent'].forEach(id => { $(id).hidden = id !== step; }); }
+
+    function chosen(){
+      return current.options.map(o => {
+        const val = $('opt_' + o.id).value;
+        const match = o.values.find(v => labelOf(v) === val);
+        return {label:o.label, value:val, price: match && typeof match !== 'string' ? match.price : null};
+      });
+    }
+    function unitPrice(){
+      let p = current.price;
+      chosen().forEach(o => { if (o.price != null) p = o.price; });
+      return p;
+    }
+    function qty(){ return Math.min(20, Math.max(1, parseInt($('qty').value, 10) || 1)); }
+    function updateTotal(){ $('orderTotal').textContent = money(unitPrice() * qty()); }
+
+    function openOrder(key){
+      current = PRODUCTS[key];
+      if (!current) return;
+      $('orderTitle').textContent = current.event ? 'Reserve tickets' : 'Order ' + current.name;
+      $('qtyLabel').textContent = current.event ? 'Number of tickets' : 'Quantity';
+      const box = $('optionFields'); box.textContent = '';
+      current.options.forEach(o => {
+        const wrap = document.createElement('div'); wrap.className = 'field';
+        const lab = document.createElement('label'); lab.htmlFor = 'opt_' + o.id; lab.textContent = o.label;
+        const sel = document.createElement('select'); sel.id = 'opt_' + o.id;
+        o.values.forEach(v => {
+          const op = document.createElement('option');
+          op.value = labelOf(v);
+          op.textContent = typeof v === 'string' ? v : v.label + ' · $' + v.price;
+          sel.appendChild(op);
+        });
+        sel.addEventListener('change', updateTotal);
+        wrap.append(lab, sel); box.appendChild(wrap);
+      });
+      $('addrField').hidden = !!current.event;
+      $('cAddr').required = !current.event;
+      showStep('stepForm'); updateTotal();
+      dlg.showModal();
+    }
+
+    function buildMessage(){
+      const opts = chosen();
+      const rows = [['Product', current.name]];
+      opts.forEach(o => rows.push([o.label, o.value]));
+      rows.push([current.event ? 'Tickets' : 'Quantity', String(qty())],
+                ['Price each', money(unitPrice())],
+                ['Estimated total', money(unitPrice() * qty())],
+                ['Name', $('cName').value.trim()],
+                ['Email', $('cEmail').value.trim()]);
+      const phone = $('cPhone').value.trim(); if (phone) rows.push(['Phone', phone]);
+      if (!current.event) rows.push(['Delivery address', $('cAddr').value.trim()]);
+      const notes = $('cNotes').value.trim(); if (notes) rows.push(['Notes', notes]);
+      message = 'New Rilah order request via DeenBay\n\n' + rows.map(r => r[0] + ': ' + r[1]).join('\n') +
+        '\n\nPrices are from Rilah\'s list and may change. Estimated total does not include shipping or taxes, if any.';
+      const box = $('summary'); box.textContent = '';
+      rows.forEach(([k, v]) => {
+        const row = document.createElement('div'); row.className = 'summary-row';
+        const a = document.createElement('span'); a.textContent = k;
+        const b = document.createElement('b'); b.textContent = v;
+        row.append(a, b); box.appendChild(row);
+      });
+      const subject = 'Rilah order: ' + current.name + ' — ' + $('cName').value.trim();
+      $('sendEmail').href = 'mailto:' + ORDER_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(message);
+    }
+
+    async function copyOrder(){
+      try {
+        if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(message); else throw new Error('x');
+      } catch (e) {
+        const t = document.createElement('textarea'); t.value = message; t.style.position = 'fixed'; t.style.opacity = '0';
+        document.body.appendChild(t); t.select(); const ok = document.execCommand('copy'); t.remove();
+        if (!ok) { alert('Could not copy. Please use Send order by email.'); return; }
+      }
+      $('sentTitle').textContent = 'Details copied';
+      $('sentCopy').textContent = 'Paste them into an email to ' + ORDER_EMAIL + ' to place your order.';
+      showStep('stepSent');
+    }
+
+    document.addEventListener('click', e => {
+      const b = e.target.closest('[data-order]');
+      if (b) openOrder(b.dataset.order);
+    });
+    $('qty').addEventListener('input', updateTotal);
+    $('orderForm').addEventListener('submit', e => { e.preventDefault(); buildMessage(); showStep('stepReview'); });
+    $('editOrder').onclick = () => showStep('stepForm');
+    $('copyOrder').onclick = copyOrder;
+    $('sendEmail').addEventListener('click', () => setTimeout(() => {
+      $('sentTitle').textContent = 'Order ready';
+      $('sentCopy').textContent = 'Press Send in the email app that opened to place your order.';
+      showStep('stepSent');
+    }, 100));
+    $('orderClose').onclick = $('sentDone').onclick = () => dlg.close();
+    dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  </script>
+</body>
+</html>

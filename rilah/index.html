@@ -74,6 +74,33 @@
     .soon-card h3{margin:0 0 4px;font:600 22px/1.15 Newsreader,serif;letter-spacing:-.02em}
     .soon-card p{margin:0;font-size:14px;color:var(--muted)}
     .soon .grid{margin-bottom:0}
+    [hidden]{display:none!important}
+    .card{position:relative}
+    .card:focus-within{outline:2px solid var(--green);outline-offset:2px}
+    .order-btn{margin-top:10px;align-self:flex-start;border:0;background:var(--green);color:#fff;border-radius:100px;padding:10px 18px;font:inherit;font-size:14px;font-weight:800;cursor:pointer}
+    .order-btn::after{content:"";position:absolute;inset:0}
+    button.primary{border:0;font:inherit;font-weight:800;cursor:pointer}
+    dialog{background:var(--paper);color:var(--ink);border:1px solid var(--line);border-radius:22px;padding:0;width:min(520px,calc(100% - 28px));max-height:calc(100dvh - 28px);box-shadow:var(--shadow)}
+    dialog::backdrop{background:rgba(10,20,16,.55)}
+    .dlg-in{padding:24px 26px 26px}
+    .dlg-head{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;margin-bottom:16px}
+    .dlg-head h2{font:600 28px/1.1 Newsreader,serif;letter-spacing:-.03em;margin:2px 0 0}
+    .icon-btn{border:0;background:var(--mint);color:var(--ink);width:36px;height:36px;border-radius:50%;font-size:22px;line-height:1;cursor:pointer;flex:none}
+    .field{display:flex;flex-direction:column;gap:5px;margin-bottom:13px}
+    .field label{font-size:13px;font-weight:700}
+    .field input,.field select,.field textarea{font:inherit;color:inherit;background:var(--bg);border:1px solid var(--line);border-radius:12px;padding:11px 13px;width:100%}
+    .field textarea{min-height:76px;resize:vertical}
+    .two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+    .total{display:flex;justify-content:space-between;align-items:center;background:var(--gold-soft);border-radius:14px;padding:13px 16px;margin:4px 0 16px;font-weight:800}
+    .total small{display:block;font-weight:600;color:var(--muted);font-size:12px}
+    .dlg-actions{display:flex;gap:10px;flex-wrap:wrap}
+    .dlg-actions .primary,.dlg-actions .secondary{flex:1;min-width:140px;background:transparent}
+    .dlg-actions .primary{background:var(--green)}
+    .secondary{cursor:pointer;color:inherit;font:inherit;font-weight:800;background:transparent}
+    .summary-row{display:flex;justify-content:space-between;gap:16px;padding:9px 0;border-bottom:1px solid var(--line);font-size:14px}
+    .summary-row span{color:var(--muted);flex:none}.summary-row b{text-align:right;word-break:break-word}
+    .fine{font-size:12.5px;color:var(--muted);margin:12px 0 0}
+    .sent{text-align:center;padding:10px 0}.sent .mark{width:54px;height:54px;border-radius:50%;background:var(--mint);color:var(--green);display:grid;place-items:center;font-size:26px;margin:0 auto 12px}
     .note{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px 30px;margin-bottom:64px;display:flex;justify-content:space-between;align-items:center;gap:24px;flex-wrap:wrap}
     .note p{margin:0;color:var(--muted);max-width:640px}
 
@@ -88,10 +115,9 @@
     <div class="shell toprow">
       <a class="brand" href="../">← DeenBay</a>
       <nav class="topnav" aria-label="Rilah page">
-        <a class="nav-link" href="#event">Workshop</a>
         <a class="nav-link" href="#counters">Counters</a>
         <a class="nav-link" href="#coming-soon">Coming soon</a>
-        <a class="nav-link primary-link" href="https://rilah.co/collections/all" target="_blank" rel="noopener">Shop at Rilah</a>
+        <a class="nav-link primary-link" href="#counters">Order</a>
       </nav>
     </div>
   </header>
@@ -103,74 +129,59 @@
       <p>Custom dhikr counters made as a journey back to Allah SWT. Pick a design, carry it with you, and keep your remembrance close through the day.</p>
     </section>
 
-    <section class="event" id="event" aria-labelledby="eventTitle">
-      <img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/RilahXIman_1.png?v=1791411068" alt="Rilah × Iman Boutique workshop flyer" width="1080" height="1350" loading="lazy" />
-      <div>
-        <div class="kicker">Upcoming workshop</div>
-        <h2 id="eventTitle">The Rilah Experience, with Iman Boutique</h2>
-        <p class="when">Saturday, November 7, 2026 · 2:00–4:00 PM</p>
-        <p>9723 Baltimore Ave, College Park, MD. Design your own personalized tasbeeh counter at a bead bar. Materials, finger foods, refreshments, take-home items and an exclusive shop experience are included.</p>
-        <div class="prices">
-          <span class="pill">Early Bird · $40</span>
-          <span class="pill">General Admission · $45</span>
-        </div>
-        <a class="primary" href="https://rilah.co/products/the-rilah-experience-rilah-lady-of-iman" target="_blank" rel="noopener">Get tickets on Rilah</a>
-      </div>
-    </section>
-
     <section id="counters" aria-labelledby="countersTitle">
       <h2 class="section-title" id="countersTitle">Dhikr counters</h2>
       <div class="grid">
 
-        <a class="card" href="https://rilah.co/products/halo" target="_blank" rel="noopener">
+        <article class="card">
           <div class="ph"><img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/IMG_7990.heic?v=1788295565&amp;width=600&amp;format=jpg" alt="Halo dhikr counter" loading="lazy" /></div>
-          <div class="body"><span class="tag">Pearl Collection</span><h3>Halo</h3><p>The signature statement piece, with alternating pearl details and a jewel centerpiece. 15 colors and 5 face options.</p><span class="price">$12</span></div>
-        </a>
+          <div class="body"><span class="tag">Pearl Collection</span><h3>Halo</h3><p>The signature statement piece, with alternating pearl details and a jewel centerpiece. 15 colors and 5 face options.</p><span class="price">$12</span><button class="order-btn" type="button" data-order="halo" aria-label="Order Halo">Order</button></div>
+        </article>
 
-        <a class="card" href="https://rilah.co/products/luster" target="_blank" rel="noopener">
+        <article class="card">
           <div class="ph"><img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/IMG_5200.jpg?v=1781812237&amp;width=600" alt="Luster dhikr counter" loading="lazy" /></div>
-          <div class="body"><span class="tag">Pearl Collection</span><h3>Luster</h3><p>The most understated piece in the collection, made for everyday remembrance.</p><span class="price">$12</span></div>
-        </a>
+          <div class="body"><span class="tag">Pearl Collection</span><h3>Luster</h3><p>The most understated piece in the collection, made for everyday remembrance.</p><span class="price">$12</span><button class="order-btn" type="button" data-order="luster" aria-label="Order Luster">Order</button></div>
+        </article>
 
-        <a class="card" href="https://rilah.co/products/rilah-essence" target="_blank" rel="noopener">
+        <article class="card">
           <div class="ph"><img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/IMG_8002.heic?v=1788295182&amp;width=600&amp;format=jpg" alt="Essence dhikr counter" loading="lazy" /></div>
-          <div class="body"><span class="tag">Counter</span><h3>Essence</h3><p>Minimal but necessary: a single-color face lining and jeweled body with a signature center jewel.</p><span class="price">$12</span></div>
-        </a>
+          <div class="body"><span class="tag">Counter</span><h3>Essence</h3><p>Minimal but necessary: a single-color face lining and jeweled body with a signature center jewel.</p><span class="price">$12</span><button class="order-btn" type="button" data-order="rilah-essence" aria-label="Order Essence">Order</button></div>
+        </article>
 
-        <a class="card" href="https://rilah.co/products/rilah-radiance" target="_blank" rel="noopener">
+        <article class="card">
           <div class="ph"><img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/IMG_8010.heic?v=1788295297&amp;width=600&amp;format=jpg" alt="Radiance dhikr counter" loading="lazy" /></div>
-          <div class="body"><span class="tag">Counter</span><h3>Radiance</h3><p>A reminder that faith lights each step. Elegance with style.</p><span class="price">$12</span></div>
-        </a>
+          <div class="body"><span class="tag">Counter</span><h3>Radiance</h3><p>A reminder that faith lights each step. Elegance with style.</p><span class="price">$12</span><button class="order-btn" type="button" data-order="rilah-radiance" aria-label="Order Radiance">Order</button></div>
+        </article>
 
-        <a class="card" href="https://rilah.co/products/petal" target="_blank" rel="noopener">
+        <article class="card">
           <div class="ph"><img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/IMG_7996.heic?v=1788295446&amp;width=600&amp;format=jpg" alt="Petal dhikr counter" loading="lazy" /></div>
-          <div class="body"><span class="tag">Floral Collection</span><h3>Petal</h3><p>The most delicate piece in the collection, with a floral face, made for quiet reflection.</p><span class="price">$10</span></div>
-        </a>
+          <div class="body"><span class="tag">Floral Collection</span><h3>Petal</h3><p>The most delicate piece in the collection, with a floral face, made for quiet reflection.</p><span class="price">$10</span><button class="order-btn" type="button" data-order="petal" aria-label="Order Petal">Order</button></div>
+        </article>
 
-        <a class="card" href="https://rilah.co/products/france" target="_blank" rel="noopener">
+        <article class="card">
           <div class="ph"><img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/IMG_8556.heic?v=1789077080&amp;width=600&amp;format=jpg" alt="France flag dhikr counter" loading="lazy" /></div>
-          <div class="body"><span class="tag">Culture series</span><h3>France</h3><p>Liberty, equality and unity in blue, white and red. Carry your culture and your dhikr.</p><span class="price">$14</span></div>
-        </a>
+          <div class="body"><span class="tag">Culture series</span><h3>France</h3><p>Liberty, equality and unity in blue, white and red. Carry your culture and your dhikr.</p><span class="price">$14</span><button class="order-btn" type="button" data-order="france" aria-label="Order France">Order</button></div>
+        </article>
 
-        <a class="card" href="https://rilah.co/products/rilah-bloom" target="_blank" rel="noopener">
+        <article class="card">
           <div class="ph"><img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/IMG_8561.heic?v=1789077254&amp;width=600&amp;format=jpg" alt="Palestine flag dhikr counter" loading="lazy" /></div>
-          <div class="body"><span class="tag">Culture series</span><h3>Palestine</h3><p>A tribute to resilience, heritage and hope in red, white, black and green.</p><span class="price">$14</span></div>
-        </a>
+          <div class="body"><span class="tag">Culture series</span><h3>Palestine</h3><p>A tribute to resilience, heritage and hope in red, white, black and green.</p><span class="price">$14</span><button class="order-btn" type="button" data-order="rilah-bloom" aria-label="Order Palestine">Order</button></div>
+        </article>
 
-        <a class="card" href="https://rilah.co/products/yemen" target="_blank" rel="noopener">
+        <article class="card">
           <div class="ph"><img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/IMG_8553.heic?v=1789077171&amp;width=600&amp;format=jpg" alt="Yemen flag dhikr counter" loading="lazy" /></div>
-          <div class="body"><span class="tag">Culture series</span><h3>Yemen</h3><p>A tribute to strength, heritage and unity in red, white and black.</p><span class="price">$14</span></div>
-        </a>
+          <div class="body"><span class="tag">Culture series</span><h3>Yemen</h3><p>A tribute to strength, heritage and unity in red, white and black.</p><span class="price">$14</span><button class="order-btn" type="button" data-order="yemen" aria-label="Order Yemen">Order</button></div>
+        </article>
 
-        <a class="card" href="https://rilah.co/products/sudan" target="_blank" rel="noopener">
+        <article class="card">
           <div class="ph"><img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/IMG_8554.heic?v=1789076976&amp;width=600&amp;format=jpg" alt="Sudan flag dhikr counter" loading="lazy" /></div>
-          <div class="body"><span class="tag">Culture series</span><h3>Sudan</h3><p>A tribute to strength, resilience and unity in red, white, black and green.</p><span class="price">$14</span></div>
-        </a>
+          <div class="body"><span class="tag">Culture series</span><h3>Sudan</h3><p>A tribute to strength, resilience and unity in red, white, black and green.</p><span class="price">$14</span><button class="order-btn" type="button" data-order="sudan" aria-label="Order Sudan">Order</button></div>
+        </article>
 
-        <a class="card" href="https://rilah.co/products/nigeria" target="_blank" rel="noopener">
+        <article class="card">
           <div class="ph"><img src="https://cdn.shopify.com/s/files/1/1020/7228/7526/files/IMG_8555.heic?v=1789076806&amp;width=600&amp;format=jpg" alt="Nigeria flag dhikr counter" loading="lazy" /></div>
-          <div class="body"><span class="tag">Culture series</span><h3>Nigeria</h3><p>A tribute to peace, unity and national pride. Green for the land, white for peace.</p><span class="price">$14</span></div>
-        </a>
+          <div class="body"><span class="tag">Culture series</span><h3>Nigeria</h3><p>A tribute to peace, unity and national pride. Green for the land, white for peace.</p><span class="price">$14</span><button class="order-btn" type="button" data-order="nigeria" aria-label="Order Nigeria">Order</button></div>
+        </article>
 
       </div>
     </section>
@@ -199,11 +210,169 @@
     </section>
 
     <section class="note">
-      <p>Orders, shipping and checkout are handled on Rilah's own store. Prices shown were taken from rilah.co on October 17, 2026 and may change.</p>
-      <a class="secondary" href="https://rilah.co" target="_blank" rel="noopener">Visit rilah.co</a>
+      <p><strong>How ordering works.</strong> Tap Order on any product, fill in your details, and send the request from your email app. We'll email you to confirm your order. Prices were taken from Rilah's list on October 17, 2026 and may change.</p>
     </section>
 
     <footer><span>DeenBay · Launching soon</span><span>Product photos and prices © Rilah</span></footer>
   </main>
+  <dialog id="orderDialog" aria-labelledby="orderTitle">
+    <div class="dlg-in">
+      <div class="dlg-head"><div><div class="kicker" style="margin:0">Order request</div><h2 id="orderTitle">Order</h2></div><button class="icon-btn" id="orderClose" type="button" aria-label="Close">×</button></div>
+
+      <form id="orderForm">
+        <div id="stepForm">
+          <div id="optionFields"></div>
+          <div class="field"><label for="qty" id="qtyLabel">Quantity</label><input id="qty" type="number" min="1" max="20" value="1" required inputmode="numeric"></div>
+          <div class="total"><div>Estimated total<small>Excludes shipping and taxes, if any</small></div><span id="orderTotal">$0.00</span></div>
+          <div class="two">
+            <div class="field"><label for="cName">Your name</label><input id="cName" autocomplete="name" required></div>
+            <div class="field"><label for="cPhone">Phone (optional)</label><input id="cPhone" type="tel" autocomplete="tel" inputmode="tel"></div>
+          </div>
+          <div class="field"><label for="cEmail">Email</label><input id="cEmail" type="email" autocomplete="email" inputmode="email" required placeholder="you@example.com"></div>
+          <div class="field" id="addrField"><label for="cAddr">Delivery address</label><textarea id="cAddr" autocomplete="street-address" required></textarea></div>
+          <div class="field"><label for="cNotes">Notes (optional)</label><textarea id="cNotes"></textarea></div>
+          <div class="dlg-actions"><button class="primary" type="submit">Review order</button></div>
+        </div>
+      </form>
+
+      <div id="stepReview" hidden>
+        <div id="summary"></div>
+        <p class="fine">Your order is only sent after you tap Send in your email app. We'll email you to confirm.</p>
+        <div class="dlg-actions" style="margin-top:16px">
+          <a class="primary" id="sendEmail" href="#">Send order by email</a>
+          <button class="secondary" id="copyOrder" type="button">Copy details instead</button>
+        </div>
+        <div class="dlg-actions" style="margin-top:10px"><button class="secondary" id="editOrder" type="button">Back to edit</button></div>
+      </div>
+
+      <div id="stepSent" class="sent" hidden>
+        <div class="mark" aria-hidden="true">✓</div>
+        <h3 id="sentTitle" style="font:600 24px Newsreader,serif;margin:0 0 6px">Order ready</h3>
+        <p id="sentCopy" style="color:var(--muted);margin:0 0 18px">Press Send in the email app that opened to place your order.</p>
+        <button class="primary" id="sentDone" type="button">Done</button>
+      </div>
+    </div>
+  </dialog>
+
+  <script>
+    // Orders are emailed to the DeenBay inbox (same address the homepage forms use).
+    const ORDER_EMAIL = 'support@deenbay.com';
+
+    const COLORS = ['Dalia','Zahra','Rayana','Iman','Amirah','Rania','Jannah','Amaraa','Safaa','Lina','Maryam','Nyla','Hana','Noor','Asiya'];
+    const PRODUCTS = {
+      'halo': {name:'Halo', price:12, options:[{id:'color',label:'Color',values:COLORS},{id:'face',label:'Face',values:['Bow','Flower','Butterfly','Misc.','None']}]},
+      'luster': {name:'Luster', price:12, options:[]},
+      'rilah-essence': {name:'Essence', price:12, options:[]},
+      'rilah-radiance': {name:'Radiance', price:12, options:[]},
+      'petal': {name:'Petal', price:10, options:[]},
+      'france': {name:'France', price:14, options:[]},
+      'rilah-bloom': {name:'Palestine', price:14, options:[]},
+      'yemen': {name:'Yemen', price:14, options:[]},
+      'sudan': {name:'Sudan', price:14, options:[]},
+      'nigeria': {name:'Nigeria', price:14, options:[]}
+    };
+
+    const $ = id => document.getElementById(id);
+    const dlg = $('orderDialog');
+    let current = null, message = '';
+    const money = n => '$' + n.toFixed(2);
+    const labelOf = v => typeof v === 'string' ? v : v.label;
+
+    function showStep(step){ ['stepForm','stepReview','stepSent'].forEach(id => { $(id).hidden = id !== step; }); }
+
+    function chosen(){
+      return current.options.map(o => {
+        const val = $('opt_' + o.id).value;
+        const match = o.values.find(v => labelOf(v) === val);
+        return {label:o.label, value:val, price: match && typeof match !== 'string' ? match.price : null};
+      });
+    }
+    function unitPrice(){
+      let p = current.price;
+      chosen().forEach(o => { if (o.price != null) p = o.price; });
+      return p;
+    }
+    function qty(){ return Math.min(20, Math.max(1, parseInt($('qty').value, 10) || 1)); }
+    function updateTotal(){ $('orderTotal').textContent = money(unitPrice() * qty()); }
+
+    function openOrder(key){
+      current = PRODUCTS[key];
+      if (!current) return;
+      $('orderTitle').textContent = current.event ? 'Reserve tickets' : 'Order ' + current.name;
+      $('qtyLabel').textContent = current.event ? 'Number of tickets' : 'Quantity';
+      const box = $('optionFields'); box.textContent = '';
+      current.options.forEach(o => {
+        const wrap = document.createElement('div'); wrap.className = 'field';
+        const lab = document.createElement('label'); lab.htmlFor = 'opt_' + o.id; lab.textContent = o.label;
+        const sel = document.createElement('select'); sel.id = 'opt_' + o.id;
+        o.values.forEach(v => {
+          const op = document.createElement('option');
+          op.value = labelOf(v);
+          op.textContent = typeof v === 'string' ? v : v.label + ' · $' + v.price;
+          sel.appendChild(op);
+        });
+        sel.addEventListener('change', updateTotal);
+        wrap.append(lab, sel); box.appendChild(wrap);
+      });
+      $('addrField').hidden = !!current.event;
+      $('cAddr').required = !current.event;
+      showStep('stepForm'); updateTotal();
+      dlg.showModal();
+    }
+
+    function buildMessage(){
+      const opts = chosen();
+      const rows = [['Product', current.name]];
+      opts.forEach(o => rows.push([o.label, o.value]));
+      rows.push([current.event ? 'Tickets' : 'Quantity', String(qty())],
+                ['Price each', money(unitPrice())],
+                ['Estimated total', money(unitPrice() * qty())],
+                ['Name', $('cName').value.trim()],
+                ['Email', $('cEmail').value.trim()]);
+      const phone = $('cPhone').value.trim(); if (phone) rows.push(['Phone', phone]);
+      if (!current.event) rows.push(['Delivery address', $('cAddr').value.trim()]);
+      const notes = $('cNotes').value.trim(); if (notes) rows.push(['Notes', notes]);
+      message = 'New Rilah order request via DeenBay\n\n' + rows.map(r => r[0] + ': ' + r[1]).join('\n') +
+        '\n\nPrices are from Rilah\'s list and may change. Estimated total does not include shipping or taxes, if any.';
+      const box = $('summary'); box.textContent = '';
+      rows.forEach(([k, v]) => {
+        const row = document.createElement('div'); row.className = 'summary-row';
+        const a = document.createElement('span'); a.textContent = k;
+        const b = document.createElement('b'); b.textContent = v;
+        row.append(a, b); box.appendChild(row);
+      });
+      const subject = 'Rilah order: ' + current.name + ' — ' + $('cName').value.trim();
+      $('sendEmail').href = 'mailto:' + ORDER_EMAIL + '?subject=' + encodeURIComponent(subject) + '&body=' + encodeURIComponent(message);
+    }
+
+    async function copyOrder(){
+      try {
+        if (navigator.clipboard && window.isSecureContext) await navigator.clipboard.writeText(message); else throw new Error('x');
+      } catch (e) {
+        const t = document.createElement('textarea'); t.value = message; t.style.position = 'fixed'; t.style.opacity = '0';
+        document.body.appendChild(t); t.select(); const ok = document.execCommand('copy'); t.remove();
+        if (!ok) { alert('Could not copy. Please use Send order by email.'); return; }
+      }
+      $('sentTitle').textContent = 'Details copied';
+      $('sentCopy').textContent = 'Paste them into an email to ' + ORDER_EMAIL + ' to place your order.';
+      showStep('stepSent');
+    }
+
+    document.addEventListener('click', e => {
+      const b = e.target.closest('[data-order]');
+      if (b) openOrder(b.dataset.order);
+    });
+    $('qty').addEventListener('input', updateTotal);
+    $('orderForm').addEventListener('submit', e => { e.preventDefault(); buildMessage(); showStep('stepReview'); });
+    $('editOrder').onclick = () => showStep('stepForm');
+    $('copyOrder').onclick = copyOrder;
+    $('sendEmail').addEventListener('click', () => setTimeout(() => {
+      $('sentTitle').textContent = 'Order ready';
+      $('sentCopy').textContent = 'Press Send in the email app that opened to place your order.';
+      showStep('stepSent');
+    }, 100));
+    $('orderClose').onclick = $('sentDone').onclick = () => dlg.close();
+    dlg.addEventListener('click', e => { if (e.target === dlg) dlg.close(); });
+  </script>
 </body>
 </html>
