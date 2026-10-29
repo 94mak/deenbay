@@ -1,0 +1,144 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>RemoBrush — DeenBay Seller Preview</title>
+  <meta name="description" content="A preview of how RemoBrush's miswak-infused oral care line could look as a founding seller on DeenBay." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      color-scheme:light dark;
+      --bg:#f7f6f1;--paper:#fffefa;--ink:#18332a;--muted:#65726d;--line:#d9ddd4;
+      --green:#0c6148;--green-2:#174f40;--mint:#dcebe2;--gold:#bd8a2c;--gold-soft:#f1e3bd;
+      --shadow:0 20px 55px rgba(18,46,36,.12);
+    }
+    @media(prefers-color-scheme:dark){:root{
+      --bg:#0e1915;--paper:#15231e;--ink:#edf7f1;--muted:#a8b7b0;--line:#31443c;
+      --green:#61c5a1;--green-2:#d5f2e5;--mint:#203d32;--gold:#e0b45b;--gold-soft:#3d321d;
+      --shadow:0 20px 55px rgba(0,0,0,.32);
+    }}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;line-height:1.5}
+    .shell{width:min(1180px,calc(100% - 40px));margin:auto}
+
+    .topbar{padding:13px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(14px);z-index:20}
+    .toprow{display:flex;justify-content:space-between;align-items:center;gap:20px}
+    .wordmark{font:600 20px/1 Newsreader,serif}
+    .preview-badge{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:700;color:var(--green-2)}
+    .preview-dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px color-mix(in srgb,var(--gold) 18%,transparent)}
+
+    .hero{padding:56px 0 44px}
+    .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:14px}
+    .hero h1{font:600 clamp(36px,5.5vw,58px)/1.05 Newsreader,serif;letter-spacing:-.03em;margin:0 0 16px;max-width:720px}
+    .hero h1 em{color:var(--green);font-style:italic}
+    .hero p{font-size:17px;color:var(--muted);max-width:640px;margin:0}
+    .hero-note{margin-top:26px;background:var(--mint);border-radius:16px;padding:16px 20px;font-size:14px;color:var(--green-2);max-width:640px}
+
+    .section-head{padding:8px 0 24px}
+    .section-head h2{font:600 30px/1.1 Newsreader,serif;margin:0 0 6px}
+    .section-head p{color:var(--muted);font-size:15px;margin:0;max-width:600px}
+
+    .grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;padding-bottom:70px}
+    .product{min-width:0}
+    .product-media{aspect-ratio:1;border-radius:14px;overflow:hidden;border:1px solid color-mix(in srgb,var(--line) 70%,transparent);background:var(--paper)}
+    .product-media img{width:100%;height:100%;object-fit:cover;display:block}
+    .product-copy{padding:12px 3px 0}
+    .product-copy small{color:var(--gold);font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+    .product-copy h3{font:600 17px/1.25 Newsreader,serif;margin:6px 0 4px}
+    .product-copy p{color:var(--muted);font-size:13px;margin:0 0 8px;line-height:1.5}
+    .price{font-weight:800;font-size:14px}
+
+    footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:13px;text-align:center}
+    footer a{color:var(--green);font-weight:700;text-decoration:none}
+
+    @media(max-width:980px){.grid{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:720px){.grid{grid-template-columns:repeat(2,1fr);gap:16px}.hero{padding:40px 0 32px}}
+    @media(max-width:460px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell toprow">
+      <div class="wordmark">DeenBay</div>
+      <div class="preview-badge"><span class="preview-dot" aria-hidden="true"></span>Seller preview — not live yet</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="shell">
+      <section class="hero">
+        <div class="kicker">RemoBrush · Prospective founding seller</div>
+        <h1>Miswak-rooted oral care, made for <em>DeenBay</em>.</h1>
+        <p>A look at how RemoBrush's bamboo toothbrushes, tongue cleaners, and miswak-infused essentials could appear as a founding seller storefront on DeenBay — pulled directly from their current catalog.</p>
+        <div class="hero-note">This page is a preview only. Pricing, photos, and copy are pulled from RemoBrush's current store and nothing here is for sale yet — let us know what you'd want changed before it goes live.</div>
+      </section>
+
+      <section class="section-head">
+        <h2>The RemoBrush line</h2>
+        <p>Water-activated miswak bristles on biodegradable bamboo handles — toothbrushes, a tongue cleaner, toothpaste, miswak twigs, and a few bundles.</p>
+      </section>
+
+      <div class="grid">
+        <article class="product">
+          <div class="product-media"><img src="https://cdn.shopify.com/s/files/1/0574/3303/0752/files/Green_overview.png?v=1785676174" alt="RemoBrush bamboo toothbrush with miswak bristles" loading="lazy"></div>
+          <div class="product-copy"><small>Oral Care</small><h3>RemoBrush — Miswak Bristles Bamboo Toothbrush</h3><p>Water-activated bamboo toothbrush combining miswak's natural cleaning power with a biodegradable handle.</p><span class="price">$17.00</span></div>
+        </article>
+        <article class="product">
+          <div class="product-media"><img src="https://cdn.shopify.com/s/files/1/0574/3303/0752/files/92D8C161-260B-44FA-8C3C-1BFA1B42EE57.png?v=1784945903" alt="RemoMini kids miswak toothbrush" loading="lazy"></div>
+          <div class="product-copy"><small>Oral Care · Kids</small><h3>RemoMini — Kids Miswak Bristles Toothbrush</h3><p>Ultra-soft bristles and a small, safe grip for ages 0–8, built around the same miswak-inspired care.</p><span class="price">$12.00</span></div>
+        </article>
+        <article class="product">
+          <div class="product-media"><img src="https://cdn.shopify.com/s/files/1/0574/3303/0752/files/ChatGPT_Image_Jul_21_2026_10_01_39_AM.png?v=1784931157" alt="Remo Tongue Brush bamboo tongue cleaner" loading="lazy"></div>
+          <div class="product-copy"><small>Oral Care</small><h3>Remo Tongue Brush — Bamboo Tongue Cleaner</h3><p>Miswak bristles on a bamboo handle, aimed at the bacteria on the tongue that plain brushing misses.</p><span class="price">$12.00</span></div>
+        </article>
+        <article class="product">
+          <div class="product-media"><img src="https://cdn.shopify.com/s/files/1/0574/3303/0752/files/Mint_and_cardamom_toothpaste.png?v=1785552818" alt="RemoBrush Miswak and Neem toothpaste" loading="lazy"></div>
+          <div class="product-copy"><small>Oral Care · Halal</small><h3>Miswak &amp; Neem Toothpaste (Halal)</h3><p>Fluoride-free toothpaste blending miswak and neem with nano-hydroxyapatite for enamel and gum support.</p><span class="price">$14.00</span></div>
+        </article>
+        <article class="product">
+          <div class="product-media"><img src="https://cdn.shopify.com/s/files/1/0574/3303/0752/files/miswak.png?v=1785081938" alt="Organic miswak twig" loading="lazy"></div>
+          <div class="product-copy"><small>Oral Care</small><h3>Organic Miswak Twig</h3><p>Sustainably sourced from the Arak tree in Pakistan — a tradition trusted for over 1,400 years.</p><span class="price">from $8.00</span></div>
+        </article>
+        <article class="product">
+          <div class="product-media"><img src="https://cdn.shopify.com/s/files/1/0574/3303/0752/files/brushHolder1_1.jpg?v=1770757966" alt="RemoBrush bamboo magnetic wall holder" loading="lazy"></div>
+          <div class="product-copy"><small>Home &amp; Gifts</small><h3>Magnetic Holder — Bamboo Wall Mount</h3><p>A minimalist bamboo magnetic mount that keeps a RemoBrush dry, visible, and off the counter.</p><span class="price">$8.00</span></div>
+        </article>
+        <article class="product">
+          <div class="product-media"><img src="https://cdn.shopify.com/s/files/1/0574/3303/0752/files/FLUFFMEDIA--10.jpg?v=1748568001" alt="Reusable travel pouch" loading="lazy"></div>
+          <div class="product-copy"><small>Home &amp; Gifts</small><h3>Reusable Travel Pouch</h3><p>Lightweight, water-resistant pouch made from renewable PLA for a RemoBrush and tongue brush on the go.</p><span class="price">$6.00</span></div>
+        </article>
+        <article class="product">
+          <div class="product-media"><img src="https://cdn.shopify.com/s/files/1/0574/3303/0752/files/IntroducingMiswak-InfusedElectricToothbrushHeads1.png?v=1780368342" alt="Miswak-infused electric toothbrush heads, 2-pack" loading="lazy"></div>
+          <div class="product-copy"><small>Oral Care</small><h3>Electric Toothbrush Heads (2-Pack)</h3><p>Miswak-infused replacement heads for electric brushes — the same chemistry, modern performance.</p><span class="price">$26.00</span></div>
+        </article>
+        <article class="product">
+          <div class="product-media"><img src="https://cdn.shopify.com/s/files/1/0574/3303/0752/files/RemoBrushtoothpastetubesinpoolwater.jpg?v=1789596210" alt="The Daily Reset bundle" loading="lazy"></div>
+          <div class="product-copy"><small>Bundle</small><h3>The Daily Reset</h3><p>A RemoBrush toothbrush and Miswak &amp; Neem toothpaste together, at a better price than buying separately.</p><span class="price">$26.00</span></div>
+        </article>
+        <article class="product">
+          <div class="product-media"><img src="https://cdn.shopify.com/s/files/1/0574/3303/0752/files/ACCF7A9F-9C0B-4F7C-9EF3-99F6EDE19800.png?v=1756554999" alt="RemoBrush and tongue brush bundle" loading="lazy"></div>
+          <div class="product-copy"><small>Bundle</small><h3>RemoBrush + Tongue Brush</h3><p>Pairs a RemoBrush with a miswak-bristle tongue brush for a complete daily routine.</p><span class="price">$20.00</span></div>
+        </article>
+        <article class="product">
+          <div class="product-media"><img src="https://cdn.shopify.com/s/files/1/0574/3303/0752/files/FLUFFMEDIA--11.jpg?v=1748569968" alt="RemoBrush starter pack" loading="lazy"></div>
+          <div class="product-copy"><small>Bundle</small><h3>RemoBrush Starter Pack</h3><p>A 4-piece bundle of RemoBrush's essentials, built for first-time customers trying the full routine.</p><span class="price">$35.00</span></div>
+        </article>
+        <article class="product">
+          <div class="product-media"><img src="https://cdn.shopify.com/s/files/1/0574/3303/0752/files/ColortoMatchYourLifestyle_a0d19adc-d3b7-48b8-9800-de889c3b5642.jpg?v=1741731677" alt="RemoBrush year supply, three toothbrushes" loading="lazy"></div>
+          <div class="product-copy"><small>Bundle</small><h3>RemoBrush Year Supply</h3><p>Three miswak bristle toothbrushes, sized for a full year of replacements every four months.</p><span class="price">$40.00</span></div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="shell">Preview built for RemoBrush by DeenBay. Product photos, pricing, and descriptions sourced from <a href="https://remobrush.com" rel="noopener">remobrush.com</a>.</div>
+  </footer>
+</body>
+</html>
