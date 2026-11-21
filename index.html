@@ -217,12 +217,13 @@
     let orderProductName='', orderProductPrice='', currentSeller='';
     const DEFAULT_SELLER_INFO={promise:['Every order is confirmed by DeenBay before anything is made or shipped.'],contactName:'DeenBay support',contactEmail:PLATFORM_OWNER_EMAIL};
     const SELLER_INFO={
-      Rilah:{promise:["30-day returns: items must be unworn/unused, with tags, in original packaging, with proof of purchase.","Damaged, defective, or wrong item? Contact us right away and we'll make it right.","Personalized orders, sale items, and gift cards can't be returned.","EU customers get a 14-day cooling-off right to cancel for any reason.","Approved refunds go back to your original payment method within 10 business days."],contactName:'DeenBay support',contactEmail:PLATFORM_OWNER_EMAIL}
+      Rilah:{promise:["30-day returns: items must be unworn/unused, with tags, in original packaging, with proof of purchase.","Damaged, defective, or wrong item? Contact us right away and we'll make it right.","Personalized orders, sale items, and gift cards can't be returned.","EU customers get a 14-day cooling-off right to cancel for any reason.","Approved refunds go back to your original payment method within 10 business days."],shipping:["Orders are processed within 1 business day (next business day if placed after noon, on a weekend, or on a holiday).","Shipping cost and delivery estimates are calculated at checkout based on your destination.","International orders (including Canada, the UK, and the EU) may be subject to customs duties or import taxes not collected at checkout.","You'll get a confirmation email with tracking as soon as your order ships."],contactName:'DeenBay support',contactEmail:PLATFORM_OWNER_EMAIL}
     };
     function renderSellerPromise(seller){
       const info=SELLER_INFO[seller]||DEFAULT_SELLER_INFO;
       const box=document.getElementById('sellerPromise');
       let html='<p style="font-weight:800;margin:0 0 10px">Our promise</p><ul class="policy-list">'+info.promise.map(t=>'<li>'+t+'</li>').join('')+'</ul>';
+      if(info.shipping&&info.shipping.length){html+='<p style="font-weight:800;margin:18px 0 10px">Shipping</p><ul class="policy-list">'+info.shipping.map(t=>'<li>'+t+'</li>').join('')+'</ul>'}
       if(info.contactEmail){html+='<p class="policy-note">Questions about an order? Email '+info.contactName+' directly at <a href="mailto:'+info.contactEmail+'" style="color:var(--green);font-weight:700">'+info.contactEmail+'</a>.</p>'}
       box.innerHTML=html;
     }
