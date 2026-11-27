@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="color-scheme" content="light dark" />
+  <link rel="icon" href="data:," />
+  <title>Golden Oasis — DeenBay Seller Preview</title>
+  <meta name="description" content="A preview of how Golden Oasis's traditional Ithmid Kohl could look as a founding seller on DeenBay." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      color-scheme:light dark;
+      --bg:#f7f6f1;--paper:#fffefa;--ink:#18332a;--muted:#65726d;--line:#d9ddd4;
+      --green:#0c6148;--green-2:#174f40;--mint:#dcebe2;--gold:#bd8a2c;--gold-soft:#f1e3bd;
+      --shadow:0 20px 55px rgba(18,46,36,.12);
+    }
+    @media(prefers-color-scheme:dark){:root{
+      --bg:#0e1915;--paper:#15231e;--ink:#edf7f1;--muted:#a8b7b0;--line:#31443c;
+      --green:#61c5a1;--green-2:#d5f2e5;--mint:#203d32;--gold:#e0b45b;--gold-soft:#3d321d;
+      --shadow:0 20px 55px rgba(0,0,0,.32);
+    }}
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0;background:var(--bg);color:var(--ink);font-family:Manrope,system-ui,sans-serif;line-height:1.5}
+    .shell{width:min(1180px,calc(100% - 40px));margin:auto}
+
+    .topbar{padding:13px 0;border-bottom:1px solid var(--line);position:sticky;top:0;background:color-mix(in srgb,var(--bg) 94%,transparent);backdrop-filter:blur(14px);z-index:20}
+    .toprow{display:flex;justify-content:space-between;align-items:center;gap:20px}
+    .wordmark{font:600 20px/1 Newsreader,serif}
+    .preview-badge{display:flex;align-items:center;gap:9px;font-size:13px;font-weight:700;color:var(--green-2)}
+    .preview-dot{width:9px;height:9px;border-radius:50%;background:var(--gold);box-shadow:0 0 0 5px color-mix(in srgb,var(--gold) 18%,transparent)}
+
+    .hero{padding:56px 0 44px}
+    .kicker{font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--gold);margin-bottom:14px}
+    .hero h1{font:600 clamp(36px,5.5vw,58px)/1.05 Newsreader,serif;letter-spacing:-.03em;margin:0 0 16px;max-width:720px}
+    .hero h1 em{color:var(--green);font-style:italic}
+    .hero p{font-size:17px;color:var(--muted);max-width:640px;margin:0}
+    .hero-note{margin-top:26px;background:var(--mint);border-radius:16px;padding:16px 20px;font-size:14px;color:var(--green-2);max-width:640px}
+
+    .section-head{padding:8px 0 24px}
+    .section-head h2{font:600 30px/1.1 Newsreader,serif;margin:0 0 6px}
+    .section-head p{color:var(--muted);font-size:15px;margin:0;max-width:640px}
+
+    .feature-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:28px;padding-bottom:56px}
+    .feature{background:var(--paper);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:var(--shadow);min-width:0;display:flex;flex-direction:column}
+    .stage{aspect-ratio:1;background:#fff}
+    .stage img{width:100%;height:100%;object-fit:cover;display:block}
+    .thumbs{display:flex;gap:8px;padding:12px 16px 0;overflow-x:auto}
+    .thumbs button{flex:0 0 60px;width:60px;height:60px;border:2px solid transparent;border-radius:10px;padding:0;overflow:hidden;background:#fff;cursor:pointer;opacity:.75}
+    .thumbs button[aria-current="true"]{border-color:var(--gold);opacity:1}
+    .thumbs img{width:100%;height:100%;object-fit:cover;display:block}
+    .feature-copy{padding:18px 22px 24px}
+    .feature-copy small{color:var(--gold);font-size:11px;font-weight:800;letter-spacing:.06em;text-transform:uppercase}
+    .feature-copy h3{font:600 26px/1.15 Newsreader,serif;margin:6px 0 8px}
+    .feature-copy p{color:var(--muted);font-size:14px;margin:0 0 12px}
+    .feature-copy ul{margin:0 0 14px;padding-left:18px;font-size:14px;color:var(--ink)}
+    .feature-copy li{margin:3px 0}
+    .price{font-weight:800;font-size:20px}
+    .tag{display:inline-block;margin-left:8px;font-size:11px;font-weight:800;letter-spacing:.05em;text-transform:uppercase;color:var(--green-2);background:var(--mint);border-radius:999px;padding:3px 9px;vertical-align:middle}
+
+    .terms{background:var(--paper);border:1px solid var(--line);border-radius:20px;padding:26px 26px 22px;margin-bottom:70px}
+    .terms h2{font:600 26px/1.1 Newsreader,serif;margin:0 0 4px}
+    .terms>p{color:var(--muted);font-size:14px;margin:0 0 18px}
+    .terms-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:26px}
+    .terms h3{font-size:12px;letter-spacing:.12em;text-transform:uppercase;font-weight:800;color:var(--gold);margin:0 0 8px}
+    .terms ul{margin:0;padding-left:18px;font-size:14px}
+    .terms li{margin:5px 0}
+
+    footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:13px;text-align:center}
+    footer a{color:var(--green);font-weight:700;text-decoration:none}
+
+    @media(max-width:860px){.feature-grid,.terms-grid{grid-template-columns:1fr}.hero{padding:40px 0 32px}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="shell toprow">
+      <div class="wordmark">DeenBay</div>
+      <div class="preview-badge"><span class="preview-dot" aria-hidden="true"></span>Seller preview — not live yet</div>
+    </div>
+  </header>
+
+  <main>
+    <div class="shell">
+      <section class="hero">
+        <div class="kicker">Golden Oasis · Prospective founding seller</div>
+        <h1>Traditional Ithmid Kohl, made for <em>DeenBay</em>.</h1>
+        <p>A look at how Golden Oasis's Ithmid Kohl set and refill bottles could appear as a founding seller storefront on DeenBay — pulled directly from the Golden Oasis store.</p>
+        <div class="hero-note">This page is a preview only. Pricing, photos, and copy are pulled from Golden Oasis's current store and nothing here is for sale yet — let us know what you'd want changed before it goes live.</div>
+      </section>
+
+      <section class="section-head">
+        <h2>The Golden Oasis line</h2>
+        <p>Golden Oasis exists to preserve the traditional practice of Ithmid Kohl — sourced responsibly, handled with care, and documented honestly.</p>
+      </section>
+
+      <div class="feature-grid">
+        <article class="feature" data-gallery>
+          <div class="stage"><img src="https://cdn.shopify.com/s/files/1/0848/4834/5379/files/Change_only_the_color_of_the_bla-0_3.png?v=1762012131&width=800" alt="Golden Oasis Kohl Ithmid set with velvet pouch, glass bottle and metal applicator"></div>
+          <div class="thumbs" role="group" aria-label="More photos of the Kohl Ithmid set">
+            <button type="button" aria-current="true" aria-label="Photo 1"><img src="https://cdn.shopify.com/s/files/1/0848/4834/5379/files/Change_only_the_color_of_the_bla-0_3.png?v=1762012131&width=800" alt=""></button>
+            <button type="button" aria-label="Photo 2"><img src="https://cdn.shopify.com/s/files/1/0848/4834/5379/files/Replace_the_background_with_pure-0.png?v=1759963703&width=800" alt=""></button>
+            <button type="button" aria-label="Photo 3"><img src="https://cdn.shopify.com/s/files/1/0848/4834/5379/files/Replace_the_background_with_pure-0_3.png?v=1759963703&width=800" alt=""></button>
+            <button type="button" aria-label="Photo 4"><img src="https://cdn.shopify.com/s/files/1/0848/4834/5379/files/Replace_the_background_with_pure-0_1.png?v=1759963703&width=800" alt=""></button>
+            <button type="button" aria-label="Photo 5"><img src="https://cdn.shopify.com/s/files/1/0848/4834/5379/files/Change_the_color_of_the_black_po-0_1.png?v=1762013312&width=800" alt=""></button>
+            <button type="button" aria-label="Photo 6"><img src="https://cdn.shopify.com/s/files/1/0848/4834/5379/files/Change_only_the_color_of_the_bla-0_4.png?v=1762013312&width=800" alt=""></button>
+          </div>
+          <div class="feature-copy">
+            <small>Kohl · Complete set</small>
+            <h3>Kohl Ithmid</h3>
+            <p>Traditional Ithmid Kohl — used across Arabia, Africa, and South Asia and referenced in the Sunnah of the Prophet Muhammad ﷺ. A natural deep charcoal-gray, finely ground.</p>
+            <ul>
+              <li>10g Ithmid Kohl in a glass bottle</li>
+              <li>Integrated glass applicator inside the cap</li>
+              <li>Refillable metal bottle with a screw-open bottom</li>
+              <li>Traditional metal applicator with a rounded, blunt edge</li>
+              <li>Protective velvet pouch for storage and travel</li>
+            </ul>
+            <span class="price">$49.99</span>
+          </div>
+        </article>
+
+        <article class="feature" data-gallery>
+          <div class="stage"><img src="https://cdn.shopify.com/s/files/1/0848/4834/5379/files/Replace_the_background_with_pure-0.png?v=1759963703&width=800" alt="Golden Oasis Kohl Ithmid refill bottle with glass applicator cap"></div>
+          <div class="thumbs" role="group" aria-label="More photos of the Kohl Ithmid refill bottle">
+            <button type="button" aria-current="true" aria-label="Photo 1"><img src="https://cdn.shopify.com/s/files/1/0848/4834/5379/files/Replace_the_background_with_pure-0.png?v=1759963703&width=800" alt=""></button>
+            <button type="button" aria-label="Photo 2"><img src="https://cdn.shopify.com/s/files/1/0848/4834/5379/files/ChatGPT_Image_Sep_12_2026_11_17_13_PM_1.png?v=1789269490&width=800" alt=""></button>
+            <button type="button" aria-label="Photo 3"><img src="https://cdn.shopify.com/s/files/1/0848/4834/5379/files/ChatGPT_Image_Sep_12_2026_11_17_13_PM_2.png?v=1789269490&width=800" alt=""></button>
+          </div>
+          <div class="feature-copy">
+            <small>Kohl · Refill</small>
+            <h3>Kohl Ithmid Refill Bottle</h3>
+            <p>Already have your Golden Oasis set? Replenish your Ithmid without buying another complete kit. Use it directly with the glass applicator in the cap, or transfer it into your refillable metal bottle.</p>
+            <ul>
+              <li>10g finely ground Traditional Ithmid Kohl per bottle</li>
+              <li>Glass applicator integrated into the cap</li>
+              <li>Refill product — the metal bottle, metal applicator and velvet pouch are not included</li>
+            </ul>
+            <span class="price">$34.99</span>
+          </div>
+        </article>
+      </div>
+
+      <section class="terms" aria-labelledby="termsTitle">
+        <h2 id="termsTitle">Shipping &amp; returns</h2>
+        <p>As described in Golden Oasis's own shipping and refund policies — this is how they would appear on the DeenBay order page.</p>
+        <div class="terms-grid">
+          <div>
+            <h3>Shipping</h3>
+            <ul>
+              <li>Orders are processed within 24–48 hours (business days).</li>
+              <li>U.S. orders typically arrive within 5–7 business days after processing; international orders within 7–15 business days.</li>
+              <li>Every order includes tracking.</li>
+              <li>International orders may be subject to customs duties or taxes, which are the customer's responsibility.</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Returns</h3>
+            <ul>
+              <li>Because kohl is a personal-use product, all sales are final once shipped.</li>
+              <li>If an order arrives damaged or defective, contact Golden Oasis within 7 days of confirmed delivery with your order number and a photo — it will be replaced at no cost, or issued as store credit if a replacement is unavailable.</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <footer>
+    <div class="shell">Preview built for Golden Oasis by DeenBay. Product photos, pricing, and descriptions sourced from <a href="https://goldenoasis.store" rel="noopener">goldenoasis.store</a>.</div>
+  </footer>
+
+  <script>
+    document.querySelectorAll('[data-gallery]').forEach(function (card) {
+      var stage = card.querySelector('.stage img');
+      var buttons = card.querySelectorAll('.thumbs button');
+      buttons.forEach(function (b) {
+        b.addEventListener('click', function () {
+          stage.src = b.querySelector('img').src;
+          buttons.forEach(function (x) { x.removeAttribute('aria-current'); });
+          b.setAttribute('aria-current', 'true');
+        });
+      });
+    });
+  </script>
+</body>
+</html>
